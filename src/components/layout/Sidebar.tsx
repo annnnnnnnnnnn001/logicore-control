@@ -6,13 +6,11 @@ import {
   Package,
   Route,
   DollarSign,
-  Warehouse,
   Truck,
   Users,
   Settings,
   ChevronLeft,
   ChevronRight,
-  Ship,
   RotateCcw
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -22,7 +20,6 @@ const navigation = [
   { name: 'Orders', href: '/orders', icon: Package },
   { name: 'Route Planning', href: '/routes', icon: Route },
   { name: 'Finance', href: '/finance', icon: DollarSign },
-  { name: 'Import Containers', href: '/imports', icon: Ship },
   { name: 'Assets & RTI', href: '/assets', icon: RotateCcw },
 ];
 

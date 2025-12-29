@@ -1,9 +1,10 @@
 import { Header } from '@/components/layout/Header';
 import { MetricCard } from '@/components/dashboard/MetricCard';
-import { ImportersClock } from '@/components/dashboard/ImportersClock';
 import { HybridVolumeChart } from '@/components/dashboard/HybridVolumeChart';
 import { ExceptionFeed } from '@/components/dashboard/ExceptionFeed';
 import { FleetStatus } from '@/components/dashboard/FleetStatus';
+import { DeliveryPerformance } from '@/components/dashboard/DeliveryPerformance';
+import { RecentActivity } from '@/components/dashboard/RecentActivity';
 import { dashboardStats } from '@/data/mockData';
 import { 
   Package, 
@@ -28,7 +29,7 @@ const ControlTower = () => {
       
       <div className="p-6 space-y-6">
         {/* Top Metrics Row */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
           <MetricCard
             title="Unplanned Orders"
             value={dashboardStats.unplannedOrders}
@@ -75,18 +76,19 @@ const ControlTower = () => {
 
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Left Column - Large Widgets */}
+          {/* Left Column */}
           <div className="lg:col-span-2 space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <ImportersClock />
+              <DeliveryPerformance />
               <HybridVolumeChart />
             </div>
             <FleetStatus />
           </div>
 
-          {/* Right Column - Exception Feed */}
-          <div className="lg:col-span-1">
+          {/* Right Column */}
+          <div className="space-y-6">
             <ExceptionFeed />
+            <RecentActivity />
           </div>
         </div>
       </div>

@@ -8,7 +8,10 @@ import ControlTower from "./pages/ControlTower";
 import Orders from "./pages/Orders";
 import RoutePlanning from "./pages/RoutePlanning";
 import Finance from "./pages/Finance";
-import Imports from "./pages/Imports";
+import Assets from "./pages/Assets";
+import Fleet from "./pages/Fleet";
+import Drivers from "./pages/Drivers";
+import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,7 +28,10 @@ const App = () => (
             <Route path="/orders" element={<Orders />} />
             <Route path="/routes" element={<RoutePlanning />} />
             <Route path="/finance" element={<Finance />} />
-            <Route path="/imports" element={<Imports />} />
+            <Route path="/assets" element={<Assets />} />
+            <Route path="/fleet" element={<Fleet />} />
+            <Route path="/drivers" element={<Drivers />} />
+            <Route path="/settings" element={<Settings />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
