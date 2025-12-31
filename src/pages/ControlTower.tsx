@@ -6,7 +6,6 @@ import { FleetStatus } from '@/components/dashboard/FleetStatus';
 import { DeliveryPerformance } from '@/components/dashboard/DeliveryPerformance';
 import { RecentActivity } from '@/components/dashboard/RecentActivity';
 import { dashboardStats } from '@/data/mockData';
-import { motion } from 'framer-motion';
 import { 
   Package, 
   Truck, 
@@ -25,22 +24,12 @@ const ControlTower = () => {
   });
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">
       <Header title="Control Tower" subtitle={today} />
       
-      <motion.div 
-        className="p-6 space-y-6"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.3 }}
-      >
+      <div className="p-6 space-y-6">
         {/* Top Metrics Row */}
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
           <MetricCard
             title="Unplanned Orders"
             value={dashboardStats.unplannedOrders}
@@ -83,36 +72,26 @@ const ControlTower = () => {
             icon={Clock}
             variant="default"
           />
-        </motion.div>
+        </div>
 
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          {/* Left Column - Charts */}
-          <motion.div 
-            className="lg:col-span-8 space-y-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.1 }}
-          >
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* Left Column */}
+          <div className="lg:col-span-2 space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <DeliveryPerformance />
               <HybridVolumeChart />
             </div>
             <FleetStatus />
-          </motion.div>
+          </div>
 
-          {/* Right Column - Activity Feed */}
-          <motion.div 
-            className="lg:col-span-4 space-y-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-          >
+          {/* Right Column */}
+          <div className="space-y-6">
             <ExceptionFeed />
             <RecentActivity />
-          </motion.div>
+          </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };
